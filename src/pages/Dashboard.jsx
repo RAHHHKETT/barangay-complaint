@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { collection, getDocs, updateDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { useNavigate } from 'react-router-dom'
-import { db, logger } from '../firebase'
+import { logger } from '../firebase'
 
 function Dashboard() {
   const [complaints, setComplaints] = useState([])
