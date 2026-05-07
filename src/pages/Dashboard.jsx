@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { collection, getDocs, updateDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { useNavigate } from 'react-router-dom'
+import { db, logger } from '../firebase'
 
 function Dashboard() {
   const [complaints, setComplaints] = useState([])
@@ -9,12 +10,18 @@ function Dashboard() {
   const navigate = useNavigate()
 
   const fetchComplaints = async () => {
-    const querySnapshot = await getDocs(collection(db, 'complaints'))
-    const data = querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }))
-    setComplaints(data)
+    try {
+      logger.info('Fetching complaints from Firestore')
+      const querySnapshot = await getDocs(collection(db, 'complaints'))
+      const data = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      logger.info(`Fetched ${data.length} complaints`)
+      setComplaints(data)
+    } catch (error) {
+      logger.error('Failed to fetch complaints', error)
+    }
   }
 
   useEffect(() => {
