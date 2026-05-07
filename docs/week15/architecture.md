@@ -7,7 +7,7 @@ The Barangay Complaint System is a web-based application built using a modern JA
 
 # Architecture Diagram
 
-'''text
+```text
 ┌─────────────────────────────────────────────────────┐
 │                    CLIENT LAYER                     │
 │                                                     │
@@ -64,30 +64,31 @@ The Barangay Complaint System is a web-based application built using a modern JA
 │                       Vercel                        │
 │          Auto-deploy on push to main branch         │
 └─────────────────────────────────────────────────────┘
-'''
+```
+
 ---
 
 # Data Flow
 
 ## Resident Filing a Complaint
 
-1. Resident opens /file-complaint page  
+1. Resident opens `/file-complaint` page  
 2. User fills out the complaint form:
    - Name
    - Phone Number
    - Address
    - Category
    - Description
-3. React frontend sends addDoc() request to Firestore  
+3. React frontend sends `addDoc()` request to Firestore  
 4. Firestore generates a unique complaint ID  
-5. Complaint status is automatically set to "Pending"  
+5. Complaint status is automatically set to `"Pending"`  
 6. Resident is redirected to the confirmation page  
 
 ---
 
 ## Admin Managing Complaints
 
-1. Admin opens /login page  
+1. Admin opens `/login` page  
 2. Firebase Authentication verifies credentials  
 3. Auth token stored in browser session  
 4. Admin redirected to Dashboard  
@@ -126,7 +127,7 @@ The Barangay Complaint System is a web-based application built using a modern JA
 
 # Deployment Workflow
 
-text
+```text
 Developer Pushes Code to GitHub
               │
               ▼
@@ -138,6 +139,7 @@ Developer Pushes Code to GitHub
               │
               ▼
       Production Web App
+```
 
 ---
 
@@ -158,3 +160,4 @@ Developer Pushes Code to GitHub
 - Stateless frontend architecture
 - Automatic scaling through Vercel and Firebase infrastructure
 - Modular React component structure
+
