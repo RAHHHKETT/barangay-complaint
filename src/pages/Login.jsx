@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase'
 import { useNavigate } from 'react-router-dom'
 
+
 function Login() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
@@ -80,9 +81,12 @@ function Login() {
         {/* File Complaint Link */}
         <p className="text-center text-sm text-gray-500 mt-4">
           Are you a resident?{' '}
-          <a href="/file-complaint" className="text-blue-600 hover:underline">
-            File a complaint here
-          </a>
+          <button
+  onClick={() => navigate('/file-complaint')}
+  className="text-blue-600 hover:underline"
+>
+  File a complaint here
+</button>
         </p>
       </div>
     </div>
