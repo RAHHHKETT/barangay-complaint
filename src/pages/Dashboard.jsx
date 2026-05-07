@@ -39,10 +39,22 @@ function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
-      <div className="bg-blue-600 text-white px-8 py-6">
-        <h1 className="text-2xl font-bold">Barangay Complaint System</h1>
-        <p className="text-sm text-blue-100">File and track complaints in your community</p>
-      </div>
+      <div className="bg-blue-600 text-white px-8 py-6 flex justify-between items-center">
+  <div>
+    <h1 className="text-2xl font-bold">Barangay Complaint System</h1>
+    <p className="text-sm text-blue-100">File and track complaints in your community</p>
+  </div>
+  <button
+    onClick={async () => {
+      const { signOut } = await import('firebase/auth')
+      const { auth } = await import('../firebase')
+      await signOut(auth)
+    }}
+    className="bg-white text-blue-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50"
+  >
+    Logout
+  </button>
+</div>
 
       <div className="px-8 py-6">
         {/* Stats */}
