@@ -7,7 +7,7 @@ The Barangay Complaint System is a web-based application built using a modern JA
 
 # Architecture Diagram
 
-text
+'''text
 ┌─────────────────────────────────────────────────────┐
 │                    CLIENT LAYER                     │
 │                                                     │
@@ -64,7 +64,7 @@ text
 │                       Vercel                        │
 │          Auto-deploy on push to main branch         │
 └─────────────────────────────────────────────────────┘
-
+'''
 ---
 
 # Data Flow
